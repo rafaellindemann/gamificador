@@ -13,7 +13,6 @@ CREATE TABLE public.gam_turmas (
     CONSTRAINT gam_turmas_codigo_unique UNIQUE (codigo)
 );
 
-
 -- =========================================
 -- TABELA: gam_categorias
 -- =========================================
@@ -28,10 +27,8 @@ CREATE TABLE public.gam_categorias (
     CONSTRAINT gam_categorias_nome_unique UNIQUE (nome)
 );
 
-
 -- =========================================
 -- TABELA: gam_usuarios
--- Perfil interno do sistema, vinculado opcionalmente ao auth.users
 -- =========================================
 CREATE TABLE public.gam_usuarios (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -65,10 +62,8 @@ CREATE TABLE public.gam_usuarios (
         CHECK (tipo IN ('aluno', 'professor', 'admin'))
 );
 
-
 -- =========================================
 -- TABELA: gam_desafios
--- Catálogo de desafios disponíveis
 -- =========================================
 CREATE TABLE public.gam_desafios (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -108,10 +103,8 @@ CREATE TABLE public.gam_desafios (
         )
 );
 
-
 -- =========================================
 -- TABELA: gam_conquistas
--- Registros de desafios realizados por alunos
 -- =========================================
 CREATE TABLE public.gam_conquistas (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -145,7 +138,6 @@ CREATE TABLE public.gam_conquistas (
         CHECK (pontos_obtidos >= 0)
 );
 
-
 -- =========================================
 -- ÍNDICES
 -- =========================================
@@ -175,3 +167,12 @@ CREATE INDEX idx_gam_conquistas_registrado_por
 
 CREATE INDEX idx_gam_conquistas_data_realizacao
     ON public.gam_conquistas (data_realizacao);
+
+-- =========================================
+-- RLS
+-- =========================================
+ALTER TABLE public.gam_turmas ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.gam_categorias ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.gam_usuarios ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.gam_desafios ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.gam_conquistas ENABLE ROW LEVEL SECURITY;
