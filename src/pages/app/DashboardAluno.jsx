@@ -1,4 +1,5 @@
 import { useAuth } from "../../contexts/AuthContext";
+import "./DashboardAluno.css";
 
 export default function DashboardAluno() {
   const { user, perfil, signOut } = useAuth();
@@ -12,15 +13,43 @@ export default function DashboardAluno() {
   }
 
   return (
-    <main>
-      <h1>Dashboard do Aluno</h1>
+    <section className="page-container aluno-page">
+      <div className="aluno-head">
+        <div>
+          <p className="eyebrow">Área do aluno</p>
+          <h1 className="page-title">Dashboard</h1>
+          <p className="page-subtitle">
+            Acompanhe seu perfil e suas informações principais.
+          </p>
+        </div>
 
-      <p>Auth email: {user?.email}</p>
-      <p>Nome: {perfil?.nome}</p>
-      <p>Matrícula: {perfil?.matricula}</p>
-      <p>Tipo: {perfil?.tipo}</p>
+        <button className="btn-danger" onClick={handleLogout}>
+          Sair
+        </button>
+      </div>
 
-      <button onClick={handleLogout}>Sair</button>
-    </main>
+      <div className="grid-3">
+        <article className="card stat-card">
+          <span className="stat-label">Nome</span>
+          <strong>{perfil?.nome || "-"}</strong>
+        </article>
+
+        <article className="card stat-card">
+          <span className="stat-label">Matrícula</span>
+          <strong>{perfil?.matricula || "-"}</strong>
+        </article>
+
+        <article className="card stat-card">
+          <span className="stat-label">Tipo</span>
+          <strong>{perfil?.tipo || "-"}</strong>
+        </article>
+      </div>
+
+      <div className="card">
+        <h2>Dados de acesso</h2>
+        <p><strong>Email do auth:</strong> {user?.email || "-"}</p>
+        <p><strong>Último login:</strong> {perfil?.ultimo_login_em || "Ainda não registrado"}</p>
+      </div>
+    </section>
   );
 }

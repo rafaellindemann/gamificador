@@ -1,0 +1,32 @@
+.aluno-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.aluno-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stat-card {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.stat-card strong {
+  font-size: 1.15rem;
+  color: var(--text-strong);
+}
+
+@media (max-width: 700px) {
+  .aluno-head {
+    flex-direction: column;
+  }
+}

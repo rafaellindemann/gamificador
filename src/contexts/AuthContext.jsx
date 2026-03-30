@@ -75,18 +75,39 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }
 
+
   async function signIn(email, password) {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
 
-    if (error) {
-      throw error;
-    }
-
-    return data;
+  if (error) {
+    throw error;
   }
+
+  if (data?.user) {
+    const perfilEncontrado = await buscarPerfil(data.user.id);
+    setPerfil(perfilEncontrado);
+    setUser(data.user);
+    setSession(data.session);
+  }
+
+  return data;
+}
+
+  // async function signIn(email, password) {
+  //   const { data, error } = await supabase.auth.signInWithPassword({
+  //     email,
+  //     password,
+  //   });
+
+  //   if (error) {
+  //     throw error;
+  //   }
+
+  //   return data;
+  // }
 
   async function signUp(email, password) {
     const { data, error } = await supabase.auth.signUp({

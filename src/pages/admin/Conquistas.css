@@ -1,0 +1,110 @@
+.conquistas-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.conquistas-header {
+  margin-bottom: 0;
+}
+
+.conquistas-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.historico-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.historico-vazio {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.historico-lista {
+  display: grid;
+  gap: 1rem;
+}
+
+.historico-item {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(30, 41, 59, 0.65);
+}
+
+.historico-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.historico-topo h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text-strong);
+}
+
+.historico-desafio {
+  margin: 0.25rem 0 0;
+  color: var(--text-soft);
+}
+
+.historico-pontos {
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #86efac;
+  font-weight: 700;
+}
+
+.historico-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.historico-observacao {
+  margin: 0.9rem 0 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--info);
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 0 12px 12px 0;
+  color: var(--text-main);
+}
+
+.conquistas-loading {
+  display: grid;
+  place-items: center;
+  min-height: 50vh;
+  font-size: 1.1rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 980px) {
+  .conquistas-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .historico-topo {
+    flex-direction: column;
+  }
+
+  .historico-pontos {
+    align-self: flex-start;
+  }
+}

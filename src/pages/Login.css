@@ -1,0 +1,13 @@
+.login-page {
+  min-height: calc(100vh - 90px);
+  display: grid;
+  place-items: center;
+}
+
+.login-card {
+  width: min(100%, 480px);
+}
+
+.login-head {
+  margin-bottom: 1.2rem;
+}

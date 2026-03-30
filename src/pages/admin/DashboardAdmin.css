@@ -1,0 +1,32 @@
+.admin-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.admin-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-link-card {
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.admin-link-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.admin-link-card p {
+  margin-bottom: 0;
+  color: var(--text-soft);
+}
+
+@media (max-width: 700px) {
+  .admin-head {
+    flex-direction: column;
+  }
+}

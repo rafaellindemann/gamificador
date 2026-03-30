@@ -1,0 +1,20 @@
+.home-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.home-hero {
+  padding: 2rem;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.home-cards p {
+  margin-bottom: 0;
+  color: var(--text-soft);
+}
